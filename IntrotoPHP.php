@@ -4,7 +4,7 @@
     
     Name: Samuel Musafiri
     Date: 2024-05-20
-    Description: Build a dynamic image gallery using Unsplash
+    Description: Build a dynamic image gallery using Unsplash.
 
 ****************/
 
