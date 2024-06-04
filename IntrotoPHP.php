@@ -4,7 +4,7 @@
     
     Name: Samuel Musafiri
     Date: 2024-05-20
-    Description: Build a dynamic image gallery using Unsplash.
+    Description: Build a dynamic image gallery using Unsplash
 
 ****************/
 
@@ -32,13 +32,14 @@ $config = [
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
-    <title>Assignment 1</title>
+    <title> <?php echo $config["gallery_name"];?> </title>
+    <!-- Changed the title to show dynamically  -->
 </head>
 <body>
     <!-- displays the gallery name-->
     <h1> <?= $config['gallery_name'];?></h1>
     <div class="imgRow">
-        <!-- loops through each element in unsplash category array, each element named as category in each iteration--->
+        <!-- loops through each element in unsplash category array, each element named as category in each iteration-->
     <?php foreach ($config['unsplash_categories'] as $category):?>
         <div class="imgBox">
             <!-- displays the category name, and captilizes first letter using ucfirst function -->
@@ -55,10 +56,14 @@ $config = [
     <!-- loops through every local image file path in each iteration and displays it along with its info -->
     <?php foreach ($config['local_images'] as $image): ?>
         <h2><?php echo ucfirst(pathinfo($image['filename'], PATHINFO_FILENAME)); ?></h2>
-        <img class="myimages" src="images/<?php echo $image['filename']; ?>" alt="<?php echo pathinfo($image['filename'], PATHINFO_FILENAME); ?>">
+        <img class="myimages" src="images/<?php echo $image['filename']; ?>" alt="<?php echo pathinfo
+        // PATHINFO_FILENAME extracts the filename without its extension, useful for displaying clean file names and alt texts.
+        ($image['filename'], PATHINFO_FILENAME); ?>">
         <p>
+            <!-- Displays artists link profile  -->
             <a href="<?php echo $image['url']; ?>" target="_blank"><?php echo $image['photographer']; ?></a>
         </p>
+        <!-- Target, attribute opens link in new tab  -->
     <?php endforeach; ?>
     
 
